@@ -1,11 +1,11 @@
 import React from "react";
+import ScissorsImage from "./components/images/ScissorsImage";
 import "./styles/App.css";
-import scissors from "./images/scissors.svg";
 
 function App() {
   return (
     <div className="container">
-      <img src={scissors} alt="scissors" />
+      <ScissorsImage />
     </div>
   );
 }

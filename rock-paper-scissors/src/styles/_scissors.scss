@@ -1,0 +1,93 @@
+#left-blade {
+  animation: left-blade 2s ease infinite alternate;
+  -webkit-animation: left-blade 2s ease infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes left-blade {
+  from {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(30deg);
+    -webkit-transform: rotateZ(30deg);
+    -moz-transform: rotateZ(30deg);
+    -ms-transform: rotateZ(30deg);
+    -o-transform: rotateZ(30deg);
+}
+}
+
+#right-blade {
+  animation: right-blade 2s ease infinite alternate;
+  -webkit-animation: right-blade 2s ease infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes right-blade {
+  from {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-30deg);
+    -webkit-transform: rotateZ(-30deg);
+    -moz-transform: rotateZ(-30deg);
+    -ms-transform: rotateZ(-30deg);
+    -o-transform: rotateZ(-30deg);
+}
+}
+
+#right-handle {
+  animation: right-handle 2s ease infinite alternate;
+  -webkit-animation: right-handle 2s ease infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes right-handle {
+  from {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(18deg);
+    -webkit-transform: rotateZ(18deg);
+    -moz-transform: rotateZ(18deg);
+    -ms-transform: rotateZ(18deg);
+    -o-transform: rotateZ(18deg);
+}
+}
+
+#left-handle {
+  animation: left-handle 2s ease infinite alternate;
+  -webkit-animation: left-handle 2s ease infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes left-handle {
+  from {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-18deg);
+    -webkit-transform: rotateZ(-18deg);
+    -moz-transform: rotateZ(-18deg);
+    -ms-transform: rotateZ(-18deg);
+    -o-transform: rotateZ(-18deg);
+}
+}
+
+

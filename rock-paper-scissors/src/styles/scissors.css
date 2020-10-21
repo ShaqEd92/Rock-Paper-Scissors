@@ -1,0 +1,84 @@
+#left-blade,
+#right-handle {
+  animation: right-side 2s ease infinite alternate;
+  -webkit-animation: right-side 2s ease infinite alternate;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+#right-blade,
+#left-handle {
+  animation: left-side 2s ease infinite alternate;
+  -webkit-animation: left-side 2s ease infinite alternate;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+@-webkit-keyframes right-side {
+  from {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(20deg);
+    -webkit-transform: rotateZ(20deg);
+    -moz-transform: rotateZ(20deg);
+    -ms-transform: rotateZ(20deg);
+    -o-transform: rotateZ(20deg);
+  }
+}
+
+@keyframes right-side {
+  from {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(20deg);
+    -webkit-transform: rotateZ(20deg);
+    -moz-transform: rotateZ(20deg);
+    -ms-transform: rotateZ(20deg);
+    -o-transform: rotateZ(20deg);
+  }
+}
+
+@-webkit-keyframes left-side {
+  from {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-20deg);
+    -webkit-transform: rotateZ(-20deg);
+    -moz-transform: rotateZ(-20deg);
+    -ms-transform: rotateZ(-20deg);
+    -o-transform: rotateZ(-20deg);
+  }
+}
+
+@keyframes left-side {
+  from {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-20deg);
+    -webkit-transform: rotateZ(-20deg);
+    -moz-transform: rotateZ(-20deg);
+    -ms-transform: rotateZ(-20deg);
+    -o-transform: rotateZ(-20deg);
+  }
+}
+/*# sourceMappingURL=scissors.css.map */

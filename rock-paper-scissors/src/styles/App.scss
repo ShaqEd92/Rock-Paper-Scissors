@@ -1,0 +1,12 @@
+@import "scissors";
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+svg {
+  border: 0.5px dotted black;
+}
