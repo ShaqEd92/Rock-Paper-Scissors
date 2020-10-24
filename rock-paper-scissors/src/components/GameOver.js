@@ -1,7 +1,7 @@
 import React from "react";
 
-const Header = () => {
+const GameOver = () => {
   return <div></div>;
 };
 
-export default Header;
+export default GameOver;
