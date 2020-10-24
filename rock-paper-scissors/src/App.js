@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import GameOptions from "./components/GameOptions";
 import PlayGame from "./components/PlayGame";
 import GameOver from "./components/GameOver";
-import ScissorsImage from "./components/images/ScissorsImage";
-import PaperImage from "./components/images/PaperImage";
+// import ScissorsImage from "./components/images/ScissorsImage";
+// import PaperImage from "./components/images/PaperImage";
 import "./styles/App.css";
 
 function App() {
   const [player, setPlayer] = useState({ name: "", score: 0 });
-  const [rounds, setRounds] = useState();
+  const [rounds, setRounds] = useState(0);
   const [gameResult, setGameResult] = useState("");
 
   return (
@@ -25,7 +25,7 @@ function App() {
             </Link>
           </Route>
           <Route exact path="/start">
-            <GameOptions setPlayer={setPlayer} setRounds={setRounds} />
+            <GameOptions player={player} rounds={rounds} setPlayer={setPlayer} setRounds={setRounds} />
           </Route>
           <Route exact path="/play">
             <PlayGame
@@ -34,7 +34,7 @@ function App() {
               setGameResult={setGameResult}
             />
           </Route>
-          <Route exact path="/start">
+          <Route exact path="/end">
             <GameOver gameResult={gameResult} />
           </Route>
         </main>
