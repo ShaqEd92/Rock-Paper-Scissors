@@ -1,5 +1,6 @@
 @import "./scissors";
 @import "./homepage";
+@import "./setup";
 
 .container {
   height: 100%;
@@ -34,112 +35,60 @@ main {
   align-items: center;
 }
 
-hr {
-  box-shadow: 20px 0px 20px rgba(255, 0, 0, 0.2),
-    0px 20px 20px rgba(255, 0, 0, 0.2);
-}
-
-.game-setup {
+.game-play {
   height: 95%;
   width: 80%;
   text-align: center;
-  input {
-    padding: 0.5% 1%;
-    width: 33%;
-    border-radius: 5%;
-    -webkit-border-radius: 5%;
-    -moz-border-radius: 5%;
-    -ms-border-radius: 5%;
-    -o-border-radius: 5%;
-    font-family: "Jolly Lodger", cursive;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  h3,
-  input {
-    color: red;
+  h3{
     font-size: 30px;
     font-weight: lighter;
     letter-spacing: 5px;
-  }
-}
-
-form {
-  button {
-    cursor: pointer;
     color: red;
-    background-color: transparent;
-    border: none;
-    font-family: "Jolly Lodger", cursive;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 22px;
-    font-weight: lighter;
-    letter-spacing: 5px;
-    &:hover {
-      color: gold;
-    }
   }
 }
 
-.rounds-buttons {
-  display: flex;
-  justify-content: space-around;
-  width: 75%;
+.choice {
   margin: auto;
-  button {
-    cursor: pointer;
-    height: 105px;
-    width: 105px;
-    outline-style: none;
-    border: none;
-    background-color: gold;
-    color: red;
-    font-size: 22px;
-    font-weight: lighter;
-    letter-spacing: 5px;
-    font-family: "Jolly Lodger", cursive;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    &:hover {
-      box-shadow: 20px 0px 20px rgba(255, 255, 0, 0.2),
-        0px 20px 20px rgba(255, 255, 0, 0.2);
-    }
-    &:active {
-      transform: translateY(3px);
-      -webkit-transform: translateY(3px);
-      -moz-transform: translateY(3px);
-      -ms-transform: translateY(3px);
-      -o-transform: translateY(3px);
-    }
-  }
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  perspective: 1000px;
 }
 
-.play-button-box {
+.hand-container {
+  transform-style: preserve-3d;
+  height: 200px;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 35vh;
-  button {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  svg {
     cursor: pointer;
-    width: 20%;
-    outline-style: none;
-    border: none;
-    background-color: transparent;
-    color: red;
-    font-size: 30px;
-    font-weight: lighter;
-    letter-spacing: 5px;
-    font-family: "Jolly Lodger", cursive;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    &:hover {
-      color: gold;
-    }
+    height: 50%;
+    width: auto;
+    object-fit: cover;
   }
+}
+
+#hand-rock {
+  transform-origin: center;
+  transform: rotate(16deg);
+  -webkit-transform: rotate(16deg);
+  -moz-transform: rotate(16deg);
+  -ms-transform: rotate(16deg);
+  -o-transform: rotate(16deg);
+}
+
+#hand-scissors {
+  transform-origin: center;
+  transform: rotate(-75deg);
+  -webkit-transform: rotate(-75deg);
+  -moz-transform: rotate(-75deg);
+  -ms-transform: rotate(-75deg);
+  -o-transform: rotate(-75deg);
 }

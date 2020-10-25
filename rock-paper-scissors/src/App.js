@@ -8,8 +8,8 @@ import GameOver from "./components/GameOver";
 import "./styles/App.css";
 
 function App() {
-  const [player, setPlayer] = useState({ name: "", score: 0 });
-  const [rounds, setRounds] = useState(0);
+  const [player, setPlayer] = useState({ name: "Shaq", score: 0 });
+  const [rounds, setRounds] = useState(3);
   const [gameResult, setGameResult] = useState("");
 
   return (

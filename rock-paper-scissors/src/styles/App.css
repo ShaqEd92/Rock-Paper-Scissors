@@ -269,61 +269,6 @@
   }
 }
 
-.container {
-  height: 100%;
-  width: 100%;
-  background: radial-gradient(#373737, black);
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: (minmax(20vh, 1fr))[auto-fit];
-      grid-template-rows: repeat(auto-fit, minmax(20vh, 1fr));
-      grid-template-areas: "box1" "box2";
-}
-
-header {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: box1;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-header h1 {
-  color: gold;
-  letter-spacing: 12px;
-  animation: appear 3s ease;
-  -webkit-animation: appear 3s ease;
-}
-
-main {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: box2;
-  height: 80vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-hr {
-  -webkit-box-shadow: 20px 0px 20px rgba(255, 0, 0, 0.2), 0px 20px 20px rgba(255, 0, 0, 0.2);
-          box-shadow: 20px 0px 20px rgba(255, 0, 0, 0.2), 0px 20px 20px rgba(255, 0, 0, 0.2);
-}
-
 .game-setup {
   height: 95%;
   width: 80%;
@@ -442,5 +387,128 @@ form button:hover {
 
 .play-button-box button:hover {
   color: gold;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(#373737, black);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (minmax(20vh, 1fr))[auto-fit];
+      grid-template-rows: repeat(auto-fit, minmax(20vh, 1fr));
+      grid-template-areas: "box1" "box2";
+}
+
+header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: box1;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header h1 {
+  color: gold;
+  letter-spacing: 12px;
+  animation: appear 3s ease;
+  -webkit-animation: appear 3s ease;
+}
+
+main {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: box2;
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.game-play {
+  height: 95%;
+  width: 80%;
+  text-align: center;
+}
+
+.game-play h3 {
+  font-size: 30px;
+  font-weight: lighter;
+  letter-spacing: 5px;
+  color: red;
+}
+
+.choice {
+  margin: auto;
+  width: 80%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(150px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.hand-container {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  height: 200px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.hand-container svg {
+  cursor: pointer;
+  height: 50%;
+  width: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#hand-rock {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  transform: rotate(16deg);
+  -webkit-transform: rotate(16deg);
+  -moz-transform: rotate(16deg);
+  -ms-transform: rotate(16deg);
+  -o-transform: rotate(16deg);
+}
+
+#hand-scissors {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  transform: rotate(-75deg);
+  -webkit-transform: rotate(-75deg);
+  -moz-transform: rotate(-75deg);
+  -ms-transform: rotate(-75deg);
+  -o-transform: rotate(-75deg);
 }
 /*# sourceMappingURL=App.css.map */
