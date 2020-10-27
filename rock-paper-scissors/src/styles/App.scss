@@ -1,11 +1,11 @@
 @import "./scissors";
 @import "./homepage";
 @import "./setup";
+@import "./choice";
 
 .container {
   height: 100%;
   width: 100%;
-  background: radial-gradient(rgb(55, 55, 55), black);
   display: grid;
   grid-template-rows: repeat(auto-fit, minmax(20vh, 1fr));
   grid-template-areas:
@@ -39,7 +39,7 @@ main {
   height: 95%;
   width: 80%;
   text-align: center;
-  h3{
+  h3 {
     font-size: 30px;
     font-weight: lighter;
     letter-spacing: 5px;
@@ -47,48 +47,74 @@ main {
   }
 }
 
-.choice {
-  margin: auto;
-  width: 80%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  perspective: 1000px;
-}
-
-.hand-container {
-  transform-style: preserve-3d;
-  height: 200px;
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  svg {
-    cursor: pointer;
-    height: 50%;
-    width: auto;
-    object-fit: cover;
+.countdown {
+  margin-top: -15vh;
+  height: 80vh;
+  width: 100%;
+  h1 {
+    grid-area: box2;
+    color: red;
+    font-size: 55px;
+    letter-spacing: 12px;
   }
 }
 
-#hand-rock {
-  transform-origin: center;
-  transform: rotate(16deg);
-  -webkit-transform: rotate(16deg);
-  -moz-transform: rotate(16deg);
-  -ms-transform: rotate(16deg);
-  -o-transform: rotate(16deg);
+.inner-countdown {
+  height: 70%;
+  display: grid;
+  grid-template-columns: 33% 34% 33%;
+  grid-template-rows: 50% 50%;
+  grid-template-areas:
+    "box1 box2 box3"
+    "box4 box5 box6";
+  div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 }
 
-#hand-scissors {
-  transform-origin: center;
-  transform: rotate(-75deg);
-  -webkit-transform: rotate(-75deg);
-  -moz-transform: rotate(-75deg);
-  -ms-transform: rotate(-75deg);
-  -o-transform: rotate(-75deg);
+.user-hand {
+  grid-area: box4;
+  svg {
+    height: 125%;
+    animation: shake 0.75s ease infinite alternate;
+    -webkit-animation: shake 0.75s ease infinite alternate;
+    transform-origin: center;
+  }
+}
+
+#rotateHand{
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+
+.computer-hand {
+  grid-area: box3;
+  svg {
+    height: 50%;
+    animation: shake 0.75s ease infinite alternate;
+    -webkit-animation: shake 0.75s ease infinite alternate;
+    transform-origin: center;
+  }
+}
+
+@keyframes shake {
+  from {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(30deg);
+    -webkit-transform: rotateZ(30deg);
+    -moz-transform: rotateZ(30deg);
+    -ms-transform: rotateZ(30deg);
+    -o-transform: rotateZ(30deg);
+  }
 }

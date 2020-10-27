@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react";
 import ChoicePage from "./ChoicePage";
+import CountDownPage from "./CountdownPage";
+import ResultPage from "./ResultPage";
+import { useHistory } from "react-router";
 
-const PlayGame = () => {
+const PlayGame = ({ player, rounds, setPlayer, setGameResult }) => {
+  let history = useHistory();
+
   const [playStatus, setPlayStatus] = useState();
   const [rockAxes, setRockAxes] = useState({ x: 0, y: 0 });
   const [paperAxes, setPaperAxes] = useState({ x: 0, y: 0 });
   const [scissorsAxes, setScissorsAxes] = useState({ x: 0, y: 0 });
   const [display, setDisplay] = useState("");
   const [pick, setPick] = useState("");
+  const [pcScore, setPcScore] = useState(0);
 
   useEffect(() => {
     setPlayStatus(statuses.CHOOSING);
+    if (player.name === "") history.push("/");
   }, []);
 
   const statuses = {
@@ -32,6 +39,7 @@ const PlayGame = () => {
   const handleSelect = (choice) => {
     setPlayStatus(statuses.COUNTDOWN);
     setPick(choice);
+    setDisplay("");
   };
 
   return (
@@ -46,8 +54,20 @@ const PlayGame = () => {
           scissorsAxes={scissorsAxes}
         />
       )}
-      {playStatus === statuses.COUNTDOWN && <div className="countdown"></div>}
-      {playStatus === statuses.RESULT && <div className="game-result"></div>}
+      {playStatus === statuses.COUNTDOWN && (
+        <CountDownPage setPlayStatus={setPlayStatus} />
+      )}
+      {playStatus === statuses.RESULT && (
+        <ResultPage
+          userPick={pick}
+          player={player}
+          setPlayer={setPlayer}
+          rounds={rounds}
+          setPlayStatus={setPlayStatus}
+          pcScore={pcScore}
+          setPcScore={setPcScore}
+        />
+      )}
       {playStatus === statuses.OVER && <div className="game-conclusion"></div>}
     </div>
   );

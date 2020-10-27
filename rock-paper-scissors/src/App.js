@@ -3,13 +3,11 @@ import { Switch, Route, Link } from "react-router-dom";
 import GameOptions from "./components/GameOptions";
 import PlayGame from "./components/PlayGame";
 import GameOver from "./components/GameOver";
-// import ScissorsImage from "./components/images/ScissorsImage";
-// import PaperImage from "./components/images/PaperImage";
 import "./styles/App.css";
 
 function App() {
-  const [player, setPlayer] = useState({ name: "Shaq", score: 0 });
-  const [rounds, setRounds] = useState(3);
+  const [player, setPlayer] = useState({ name: "", score: 0 });
+  const [rounds, setRounds] = useState();
   const [gameResult, setGameResult] = useState("");
 
   return (
@@ -25,12 +23,18 @@ function App() {
             </Link>
           </Route>
           <Route exact path="/start">
-            <GameOptions player={player} rounds={rounds} setPlayer={setPlayer} setRounds={setRounds} />
+            <GameOptions
+              player={player}
+              rounds={rounds}
+              setPlayer={setPlayer}
+              setRounds={setRounds}
+            />
           </Route>
           <Route exact path="/play">
             <PlayGame
               player={player}
-              setRounds={rounds}
+              rounds={rounds}
+              setPlayer={setPlayer}
               setGameResult={setGameResult}
             />
           </Route>
