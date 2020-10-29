@@ -1,0 +1,47 @@
+.results {
+  margin-top: -15vh;
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1 {
+    grid-area: box2;
+    color: red;
+    font-size: 25px;
+    letter-spacing: 12px;
+  }
+}
+
+.inner-results {
+  height: 75%;
+  width: 75%;
+  display: grid;
+  grid-template-columns: 33% 34% 33%;
+  grid-template-rows: 50% 50%;
+  grid-template-areas:
+    "box1 box2 box3"
+    "box4 box5 box6";
+  div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.user-pick {
+  grid-area: box4;
+  svg {
+    height: 115%;
+    transform-origin: center;
+  }
+}
+
+.computer-pick {
+  grid-area: box3;
+  svg {
+    height: 50%;
+    transform-origin: center;
+  }
+}

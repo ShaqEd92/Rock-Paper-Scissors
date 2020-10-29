@@ -3,7 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background: radial-gradient(rgb(55, 55, 55), black);
   font-family: 'Jolly Lodger', cursive;
   -webkit-font-smoothing: antialiased;

@@ -1,10 +1,12 @@
 .choice {
   margin: auto;
+  height: 80%;
   width: 80%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
   column-gap: 1%;
   perspective: 1000px;
+  overflow: hidden;
 }
 
 .hand-container {

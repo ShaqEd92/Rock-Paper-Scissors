@@ -21,12 +21,10 @@ const GameOptions = ({ player, setPlayer, rounds, setRounds }) => {
   return (
     <div className="game-setup">
       {!player.name ? (
-        <div>
-          <h3>Enter your name:&nbsp;&nbsp;</h3>
+        <div style={{ textAlign: "center" }}>
+          <h3>Enter your name</h3>
           <form onSubmit={handleSubmit}>
             <input onChange={handleChange} value={name} />
-            <br />
-            <br />
             <button type="submit">Save</button>
           </form>
         </div>
@@ -57,11 +55,14 @@ const GameOptions = ({ player, setPlayer, rounds, setRounds }) => {
           </div>
         </div>
       )}
-      {player.name && rounds > 0 && (
-        <div className="play-button-box">
-          <button onClick={() => onPlay()}>PLAY</button>
-        </div>
-      )}
+      <div className="play-button-box">
+        <button
+          onClick={() => onPlay()}
+          style={player.name && rounds > 0 ? null : { display: "none" }}
+        >
+          PLAY
+        </button>
+      </div>
     </div>
   );
 };

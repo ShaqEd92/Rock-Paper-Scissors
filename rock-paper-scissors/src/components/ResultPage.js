@@ -1,66 +1,91 @@
 import React, { useEffect, useState } from "react";
+import RockImage from "./images/RockImage";
+import PaperImage from "./images/PaperImage";
+import ScissorsImage from "./images/ScissorsImage";
+import BrokenRockImage from "./images/BrokenRockImage";
+import BrokenPaperImage from "./images/BrokenPaperImage";
+import BrokenScissorsImage from "./images/BrokenScissorsImage";
 
-const ResultPage = ({
-  userPick,
-  player,
-  setPlayer,
-  rounds,
-  pcScore,
-  setPcScore,
-  setPlayStatus,
-}) => {
+const ResultPage = ({ userPick, player, checkGameStatus }) => {
+  const [pcPick, setPcPick] = useState();
   const [message, setMessage] = useState("");
-  const [winner, setWinner] = useState(false);
+  const [userWinner, setUserWinner] = useState(false);
+  const [pcWinner, setPcWinner] = useState(false);
+
+  const results = {
+    rock: "Rock smashes scissors!",
+    paper: "Paper crumbles rock!",
+    scissors: "Scissors cuts paper!",
+  };
 
   const options = ["rock", "paper", "scissors"];
 
   useEffect(() => {
-    isGameOver();
-    if (isGameOver){
-        findWinner();
-    }
+    let computerPick = options[Math.round(Math.random() * 2)];
+    setPcPick(computerPick);
+    findWinner(computerPick);
   }, []);
 
-  const findWinner = () => {
-    let computerPick = options[Math.round(Math.random() * 2)];
-    console.log(`${userPick} vs ${computerPick}`);
-    if (userPick === computerPick) {
-      setMessage("It's a draw.");
+  const findWinner = (_pcPick) => {
+    if (userPick === _pcPick) {
+      setMessage(
+        `${player.name} picks ${userPick}. Computer picks ${_pcPick}.\nIt's a draw.`
+      );
+      setTimeout(() => {
+        checkGameStatus();
+      }, 3500);
       return;
     }
     if (
-      (userPick === "rock" && computerPick === "scissors") ||
-      (userPick === "scissors" && computerPick === "paper") ||
-      (userPick === "paper" && computerPick === "rock")
+      (userPick === "rock" && _pcPick === "scissors") ||
+      (userPick === "scissors" && _pcPick === "paper") ||
+      (userPick === "paper" && _pcPick === "rock")
     ) {
-      setMessage(`${player.name} wins this round!`);
-      let newScore = player.score + 1;
-      setPlayer({ ...player, score: newScore });
+      setMessage(
+        `${player.name} picks ${userPick}. Computer picks ${_pcPick}.`
+      );
+      setTimeout(() => {
+        setMessage(`${results[userPick]}\n${player.name} wins this round!`);
+        setUserWinner(true);
+      }, 3500);
+      setTimeout(() => {
+        checkGameStatus("win");
+      }, 7000);
     } else {
-      setMessage(`The computer wins this round!`);
-      setPcScore((pc) => pc + 1);
+      setMessage(
+        `${player.name} picks ${userPick}. Computer picks ${_pcPick}.`
+      );
+      setTimeout(() => {
+        setMessage(`${results[_pcPick]}\nThe computer wins this round!`);
+        setPcWinner(true);
+      }, 3500);
+      setTimeout(() => {
+        checkGameStatus("lose");
+      }, 7000);
     }
-  };
-
-  const isGameOver = () => {
-    if (player.score / rounds > 0.5) {
-      setMessage("You win!");
-      setWinner(true);
-    } else if (pcScore / rounds > 0.5) {
-      setMessage("You lose!");
-      setWinner(true);
-    }
-    return winner;
   };
 
   return (
     <div className="results">
-      <h1>{`Your score: ${player.score} ____________ PC score: ${pcScore}`}</h1>
-      <hr />
-      <h1 style={{ fontSize: "50px", color: "red" }}>{message}</h1>
-      {!winner && (
-        <button onClick={() => setPlayStatus("CHOOSING")}>Next round...</button>
-      )}
+      <h1>{message}</h1>
+      <div className="inner-results">
+        <div className="user-pick">
+          {userPick === "rock" && !pcWinner && <RockImage />}
+          {userPick === "paper" && !pcWinner && <PaperImage />}
+          {userPick === "scissors" && !pcWinner && <ScissorsImage />}
+          {userPick === "rock" && pcWinner && <BrokenRockImage />}
+          {userPick === "paper" && pcWinner && <BrokenPaperImage />}
+          {userPick === "scissors" && pcWinner && <BrokenScissorsImage />}
+        </div>
+        <div className="computer-pick">
+          {pcPick === "rock" && !userWinner && <RockImage />}
+          {pcPick === "paper" && !userWinner && <PaperImage />}
+          {pcPick === "scissors" && !userWinner && <ScissorsImage />}
+          {pcPick === "rock" && userWinner && <BrokenRockImage />}
+          {pcPick === "paper" && userWinner && <BrokenPaperImage />}
+          {pcPick === "scissors" && userWinner && <BrokenScissorsImage />}
+        </div>
+      </div>
     </div>
   );
 };

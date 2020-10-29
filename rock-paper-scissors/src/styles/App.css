@@ -270,14 +270,26 @@
 }
 
 .game-setup {
-  height: 95%;
+  height: 100%;
   width: 80%;
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .game-setup input {
   padding: 0.5% 1%;
-  width: 33%;
+  width: 100%;
   border-radius: 5%;
   -webkit-border-radius: 5%;
   -moz-border-radius: 5%;
@@ -296,11 +308,20 @@
   letter-spacing: 5px;
 }
 
+.game-setup input {
+  margin-top: -1.5vh;
+}
+
+form {
+  text-align: center;
+}
+
 form button {
   cursor: pointer;
   color: red;
   background-color: transparent;
   border: none;
+  margin-top: 2vh;
   font-family: "Jolly Lodger", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -319,7 +340,6 @@ form button:hover {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  width: 75%;
   margin: auto;
 }
 
@@ -367,7 +387,8 @@ form button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 35vh;
+  height: 15vh;
+  width: 100%;
 }
 
 .play-button-box button {
@@ -391,6 +412,7 @@ form button:hover {
 
 .choice {
   margin: auto;
+  height: 80%;
   width: 80%;
   display: -ms-grid;
   display: grid;
@@ -400,6 +422,7 @@ form button:hover {
           column-gap: 1%;
   -webkit-perspective: 1000px;
           perspective: 1000px;
+  overflow: hidden;
 }
 
 .hand-container {
@@ -449,20 +472,86 @@ form button:hover {
   -o-transform: rotate(-75deg);
 }
 
+.results {
+  margin-top: -15vh;
+  height: 80vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.results h1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: box2;
+  color: red;
+  font-size: 25px;
+  letter-spacing: 12px;
+}
+
+.inner-results {
+  height: 75%;
+  width: 75%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 33% 34% 33%;
+      grid-template-columns: 33% 34% 33%;
+  -ms-grid-rows: 50% 50%;
+      grid-template-rows: 50% 50%;
+      grid-template-areas: "box1 box2 box3" "box4 box5 box6";
+}
+
+.inner-results div {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-pick {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: box4;
+}
+
+.user-pick svg {
+  height: 115%;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+.computer-pick {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: box3;
+}
+
+.computer-pick svg {
+  height: 50%;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
 .container {
   height: 100%;
   width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: (minmax(20vh, 1fr))[auto-fit];
-      grid-template-rows: repeat(auto-fit, minmax(20vh, 1fr));
-      grid-template-areas: "box1" "box2";
 }
 
 header {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: box1;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -483,9 +572,6 @@ header h1 {
 }
 
 main {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: box2;
   height: 80vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -515,6 +601,7 @@ main {
   margin-top: -15vh;
   height: 80vh;
   width: 100%;
+  overflow: hidden;
 }
 
 .countdown h1 {
@@ -522,7 +609,7 @@ main {
   -ms-grid-column: 2;
   grid-area: box2;
   color: red;
-  font-size: 55px;
+  font-size: 40px;
   letter-spacing: 12px;
 }
 
@@ -581,6 +668,58 @@ main {
   -webkit-animation: shake 0.75s ease infinite alternate;
   -webkit-transform-origin: center;
           transform-origin: center;
+}
+
+.score {
+  position: absolute;
+  top: 2vh;
+  left: 2%;
+  border: 2px dotted gold;
+  width: 10%;
+  z-index: -2;
+}
+
+.score h1 {
+  color: gold;
+}
+
+.game-over {
+  margin-top: -5vh;
+}
+
+.game-over h1 {
+  font-size: 45px;
+}
+
+.game-over svg {
+  height: 350px;
+}
+
+.game-over button {
+  cursor: pointer;
+  outline-style: none;
+  margin-top: 3vh;
+  padding: 0.5%;
+  font-family: "Jolly Lodger", cursive;
+  font-size: 16px;
+  letter-spacing: 4px;
+  background-color: black;
+  color: gold;
+  border: none;
+  -webkit-box-shadow: 2px 2px 5px 1px gold;
+          box-shadow: 2px 2px 5px 1px gold;
+  border-radius: 10%;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+  opacity: 0.75;
+}
+
+.game-over button:hover {
+  -webkit-box-shadow: 2px 2px 5px 1px red;
+          box-shadow: 2px 2px 5px 1px red;
+  opacity: 1;
 }
 
 @-webkit-keyframes shake {

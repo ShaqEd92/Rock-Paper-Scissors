@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import ChoicePage from "./ChoicePage";
 import CountDownPage from "./CountdownPage";
 import ResultPage from "./ResultPage";
-import { useHistory } from "react-router";
+import GameOver from "./GameOver";
 
-const PlayGame = ({ player, rounds, setPlayer, setGameResult }) => {
+const PlayGame = ({ newGame, player, rounds, setPlayer }) => {
   let history = useHistory();
 
   const [playStatus, setPlayStatus] = useState();
@@ -14,6 +15,8 @@ const PlayGame = ({ player, rounds, setPlayer, setGameResult }) => {
   const [display, setDisplay] = useState("");
   const [pick, setPick] = useState("");
   const [pcScore, setPcScore] = useState(0);
+  const [showScore, setShowScore] = useState(false);
+  const [winner, setWinner] = useState();
 
   useEffect(() => {
     setPlayStatus(statuses.CHOOSING);
@@ -39,11 +42,41 @@ const PlayGame = ({ player, rounds, setPlayer, setGameResult }) => {
   const handleSelect = (choice) => {
     setPlayStatus(statuses.COUNTDOWN);
     setPick(choice);
+    setShowScore(true);
     setDisplay("");
+  };
+
+  const isGameOver = (result) => {
+    let yourScore = 0;
+    let compScore = 0;
+    if (result === "win") {
+      yourScore = player.score + 1;
+      setPlayer({ ...player, score: yourScore });
+    }
+    if (result === "lose") {
+      compScore = pcScore + 1;
+      setPcScore(compScore);
+    }
+    if (yourScore / rounds > 0.5) {
+      setWinner("user");
+      setPlayStatus("OVER");
+    } else if (compScore / rounds > 0.5) {
+      setWinner("pc");
+      setPlayStatus("OVER");
+    } else {
+      console.log(pcScore / rounds);
+      setPlayStatus(statuses.CHOOSING);
+    }
   };
 
   return (
     <div className="game-play">
+      {showScore && (
+        <div className="score">
+          <h1>You: {player.score}</h1>
+          <h1>Computer: {pcScore}</h1>
+        </div>
+      )}
       {display ? <h3>{display}</h3> : <h3>&nbsp;</h3>}
       {playStatus === statuses.CHOOSING && (
         <ChoicePage
@@ -61,14 +94,12 @@ const PlayGame = ({ player, rounds, setPlayer, setGameResult }) => {
         <ResultPage
           userPick={pick}
           player={player}
-          setPlayer={setPlayer}
-          rounds={rounds}
-          setPlayStatus={setPlayStatus}
           pcScore={pcScore}
-          setPcScore={setPcScore}
+          checkGameStatus={isGameOver}
         />
       )}
-      {playStatus === statuses.OVER && <div className="game-conclusion"></div>}
+      {playStatus === statuses.OVER && <GameOver newGame={newGame} winner={winner} />}
+      
     </div>
   );
 };

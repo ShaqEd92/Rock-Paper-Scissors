@@ -2,19 +2,14 @@
 @import "./homepage";
 @import "./setup";
 @import "./choice";
+@import "./results";
 
 .container {
   height: 100%;
   width: 100%;
-  display: grid;
-  grid-template-rows: repeat(auto-fit, minmax(20vh, 1fr));
-  grid-template-areas:
-    "box1"
-    "box2";
 }
 
 header {
-  grid-area: box1;
   width: 100%;
   display: flex;
   align-items: center;
@@ -28,7 +23,6 @@ header {
 }
 
 main {
-  grid-area: box2;
   height: 80vh;
   display: flex;
   justify-content: center;
@@ -51,10 +45,11 @@ main {
   margin-top: -15vh;
   height: 80vh;
   width: 100%;
+  overflow: hidden;
   h1 {
     grid-area: box2;
     color: red;
-    font-size: 55px;
+    font-size: 40px;
     letter-spacing: 12px;
   }
 }
@@ -84,7 +79,7 @@ main {
   }
 }
 
-#rotateHand{
+#rotateHand {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
@@ -99,6 +94,51 @@ main {
     animation: shake 0.75s ease infinite alternate;
     -webkit-animation: shake 0.75s ease infinite alternate;
     transform-origin: center;
+  }
+}
+
+.score {
+  position: absolute;
+  top: 2vh;
+  left: 2%;
+  border: 2px dotted gold;
+  width: 10%;
+  z-index: -2;
+  h1 {
+    color: gold;
+  }
+}
+
+.game-over {
+  margin-top: -5vh;
+  h1 {
+    font-size: 45px;
+  }
+  svg {
+    height: 350px;
+  }
+  button {
+    cursor: pointer;
+    outline-style: none;
+    margin-top: 3vh;
+    padding: 0.5%;
+    font-family: "Jolly Lodger", cursive;
+    font-size: 16px;
+    letter-spacing: 4px;
+    background-color: black;
+    color: gold;
+    border: none;
+    box-shadow: 2px 2px 5px 1px gold;
+    border-radius: 10%;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    -ms-border-radius: 10%;
+    -o-border-radius: 10%;
+    opacity: 0.75;
+    &:hover{
+      box-shadow: 2px 2px 5px 1px red;
+      opacity: 1;
+    }
   }
 }
 
