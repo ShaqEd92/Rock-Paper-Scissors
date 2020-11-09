@@ -73,7 +73,7 @@ const PlayGame = ({ newGame, player, rounds, setPlayer }) => {
     <div className="game-play">
       {showScore && (
         <div className="score">
-          <h1>You: {player.score}</h1>
+          <h1>{player.name}: {player.score}</h1>
           <h1>Computer: {pcScore}</h1>
         </div>
       )}

@@ -24,7 +24,7 @@
     font-weight: lighter;
     letter-spacing: 5px;
   }
-  input{
+  input {
     margin-top: -1.5vh;
   }
 }
@@ -107,6 +107,26 @@ form {
     -moz-osx-font-smoothing: grayscale;
     &:hover {
       color: gold;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .game-setup {
+    h3 {
+      font-size: 22px;
+      text-align: center;
+    }
+  }
+
+  .rounds-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 55vh;
+    button {
+      margin-bottom: 2vh;
     }
   }
 }

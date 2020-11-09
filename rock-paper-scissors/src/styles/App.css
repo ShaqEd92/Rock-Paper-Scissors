@@ -410,6 +410,32 @@ form button:hover {
   color: gold;
 }
 
+@media (max-width: 600px) {
+  .game-setup h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+  .rounds-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 55vh;
+  }
+  .rounds-buttons button {
+    margin-bottom: 2vh;
+  }
+}
+
 .choice {
   margin: auto;
   height: 80%;
@@ -470,6 +496,22 @@ form button:hover {
   -moz-transform: rotate(-75deg);
   -ms-transform: rotate(-75deg);
   -o-transform: rotate(-75deg);
+}
+
+@media (max-width: 600px) {
+  .choice {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 65vh;
+  }
+  .choice .hand-container {
+    height: 33%;
+  }
 }
 
 .results {
@@ -753,6 +795,17 @@ main {
     -moz-transform: rotateZ(30deg);
     -ms-transform: rotateZ(30deg);
     -o-transform: rotateZ(30deg);
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 16px;
+  }
+  .score {
+    top: 85vh;
+    left: 80%;
+    width: 15%;
   }
 }
 /*# sourceMappingURL=App.css.map */

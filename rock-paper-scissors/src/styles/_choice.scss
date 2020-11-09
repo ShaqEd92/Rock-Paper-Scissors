@@ -46,3 +46,14 @@
   -ms-transform: rotate(-75deg);
   -o-transform: rotate(-75deg);
 }
+
+@media (max-width: 600px) {
+  .choice {
+    display: flex;
+    flex-direction: column;
+    height: 65vh;
+    .hand-container {
+      height: 33%;
+    }
+  }
+}
